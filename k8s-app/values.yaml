@@ -1,3 +1,5 @@
+appName: k8s-app
+
 replicaCount: 1
 
 image:
@@ -8,6 +10,3 @@ image:
 service:
   type: ClusterIP
   port: 8080
-
-env:
-  SHA: ""
