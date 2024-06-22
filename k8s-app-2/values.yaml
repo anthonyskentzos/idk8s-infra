@@ -1,0 +1,12 @@
+appName: k8s-app
+
+replicaCount: 1
+
+image:
+  repository: ghcr.io/anthonyskentzos/k8s-app
+  pullPolicy: Always
+  tag: ""
+
+service:
+  type: ClusterIP
+  port: 8080
