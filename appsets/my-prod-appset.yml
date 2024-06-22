@@ -12,7 +12,6 @@ spec:
       revision: HEAD
       directories:
       - path: apps/*/envs/prod-us
-      - path: apps/*/envs/prod-eu
   template:
     metadata:
       name: '{{index .path.segments 1}}-{{index .path.segments 3}}'
