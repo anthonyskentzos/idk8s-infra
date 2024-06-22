@@ -1,4 +1,0 @@
-apiVersion: v2
-name: k8s-app
-description: Bugs
-version: 1.0.0
