@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/kostis-codefresh/many-appsets-demo.git
+    repoURL: https://github.com/anthonyskentzos/k8s-config.git
     targetRevision: HEAD
     path: appsets
   destination:
@@ -14,7 +14,7 @@ spec:
     namespace: argocd
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true  
-    automated: 
-      prune: true 
+    - CreateNamespace=true
+    automated:
+      prune: true
       selfHeal: true
