@@ -1,4 +1,5 @@
 https://github.com/devopsjourney1/argo-examples
+https://github.com/kostis-codefresh/many-appsets-demo/tree/main
 
 [x] Minikube
     [] Doesn't work behind WARP
@@ -28,6 +29,3 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 argocd admin initial-password -n argocd
-
-# App
-kubectl port-forward service/myhelmapp 8888:80 -n helm-webapp-dev
