@@ -1,71 +1,46 @@
-# Root Application (app-of-apps.yaml)
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: k8s-apps
-  namespace: argocd
+  name: app-of-apps
+  namespace: argocd  # ArgoCD's namespace
 spec:
-  project: default
-  source:
-    repoURL: 'https://github.com/anthonyskentzos/k8s-config'
-    path: 'k8s-app'
-    targetRevision: HEAD
   destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: argocd
+    server: https://kubernetes.default.svc  # Kubernetes API server
+    namespace: default  # Namespace where the app-of-apps will be deployed
+  source:
+    repoURL: https://github.com/anthonyskentzos/k8s-config  # Replace with your Git repository URL
+    path: /  # Path to the root of your repository
+    targetRevision: HEAD  # or specify a branch/tag/commit
+  project: default  # ArgoCD project name
+
+  # Sync policy for the app-of-apps application
   syncPolicy:
     automated:
-      selfHeal: true
-      prune: true
+      prune: true  # Prune resources not specified in Git
 
-# Child Application for Development (k8s-app-dev.yaml)
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: k8s-app-dev
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: 'https://github.com/anthonyskentzos/k8s-config'
-    path: 'k8s-app'
-    targetRevision: HEAD
-    helm:
-      parameters:
-        - name: "environment"
-          value: "dev"
+  # Application specs for deploying multiple Helm charts
+  applications:
+    - source:
+        repoURL: https://github.com/anthonyskentzos/k8s-config
+        path: k8s-app
+        targetRevision: HEAD
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: k8s-app  # Namespace for your first Helm chart deployment
+      project: default
+      chart: k8s-app
       valuesFiles:
         - values-dev.yaml
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: k8s-app-dev
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
 
-# Child Application for Production (k8s-app-prod.yaml)
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: k8s-app-prod
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: 'https://github.com/anthonyskentzos/k8s-config'
-    path: 'k8s-app'
-    targetRevision: HEAD
-    helm:
-      parameters:
-        - name: "environment"
-          value: "prod"
+    - source:
+        repoURL: https://github.com/anthonyskentzos/k8s-config
+        path: k8s-app-2
+        targetRevision: HEAD
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: k8s-app-2  # Namespace for your second Helm chart deployment
+      project: default
+      chart: k8s-app-2
       valuesFiles:
-        - values-prod.yaml
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: k8s-app-prod
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
+        - values-dev.yaml
+
