@@ -1,0 +1,71 @@
+# Root Application (app-of-apps.yaml)
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-apps
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/anthonyskentzos/k8s-config'
+    path: 'k8s-app'
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+
+# Child Application for Development (k8s-app-dev.yaml)
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-app-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/anthonyskentzos/k8s-config'
+    path: 'k8s-app'
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: "environment"
+          value: "dev"
+      valuesFiles:
+        - values-dev.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: k8s-app-dev
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+
+# Child Application for Production (k8s-app-prod.yaml)
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-app-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/anthonyskentzos/k8s-config'
+    path: 'k8s-app'
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: "environment"
+          value: "prod"
+      valuesFiles:
+        - values-prod.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: k8s-app-prod
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

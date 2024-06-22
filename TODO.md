@@ -2,11 +2,15 @@ https://github.com/devopsjourney1/argo-examples
 
 [x] Minikube
     [] Doesn't work behind WARP
-[] ArgoCD
-    [] How to do auth to a private repo?
-[x] Install Helm Chart
-[] Use custom images
-[] App of apps
+- ArgoCD
+    [] How to do auth to a private repo
+    [] App of Apps
+    [] ApplicationSets
+[] Helm Chart
+    [] Branching strat
+    [] How to update tag from config repo
+    [x] Use custom images
+
 
 # Minikube
 open -a Docker
