@@ -20,4 +20,4 @@ spec:
         imagePullPolicy: Always
         image: ghcr.io/anthonyskentzos/k8s-app:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 5000
