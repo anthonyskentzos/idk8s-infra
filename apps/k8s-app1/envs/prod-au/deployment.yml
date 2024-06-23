@@ -2,15 +2,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-deployment
+  name: k8s-app1-deployment
 spec:
   template:
     spec:
       containers:
-      - name: webserver-simple
+      - name: k8s-app1
         env:
         - name: ENV
           value: "prod-us"
         - name: GPU_ENABLED
           value: "1"
-      
