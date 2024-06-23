@@ -33,3 +33,9 @@ argocd admin initial-password -n argocd
 ## Install App-of-Apps
 argocd login localhost:8080
 - kubectl apply -f root-argocd-app.yml
+
+# Ingress
+minikube addons enable ingress
+kubectl apply -f apps/ingress/ingress.yaml
+Update `/etc/hosts` -> `127.0.0.1 k8s-app.local`
+sudo minikube tunnel
