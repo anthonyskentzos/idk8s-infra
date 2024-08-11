@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: "localhost"
+    - host: "idk8s"
       http:
         paths:
           - path: /
@@ -15,4 +15,4 @@ spec:
               service:
                 name: web
                 port:
-                  number: 80
+                  number: 8081
