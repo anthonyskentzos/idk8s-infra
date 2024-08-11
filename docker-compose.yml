@@ -1,0 +1,25 @@
+services:
+  apiv1:
+    image: ghcr.io/anthonyskentzos/idk8s-apiv1:latest
+    container_name: apiv1
+    ports:
+      - "3000:3000"
+
+  apiv2:
+    image: ghcr.io/anthonyskentzos/idk8s-apiv2:latest
+    container_name: apiv2
+    ports:
+      - "3001:3001"
+
+  web:
+    image: ghcr.io/anthonyskentzos/idk8s-web:latest
+    container_name: web
+    ports:
+      - "8080:80"
+    depends_on:
+      - apiv1
+      - apiv2
+
+networks:
+  default:
+    name: idk8s-network
