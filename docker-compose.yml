@@ -15,7 +15,7 @@ services:
     image: ghcr.io/anthonyskentzos/idk8s-web:latest
     container_name: web
     ports:
-      - "8080:80"
+      - "8081:80"
     depends_on:
       - apiv1
       - apiv2
