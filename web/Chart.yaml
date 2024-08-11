@@ -1,0 +1,4 @@
+apiVersion: v2
+name: web
+description: A Helm chart for web service
+version: 0.1.0
