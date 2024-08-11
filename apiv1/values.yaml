@@ -1,0 +1,6 @@
+image:
+  repository: ghcr.io/anthonyskentzos/idk8s-apiv1
+  tag: latest
+service:
+  port: 80
+  targetPort: 3000

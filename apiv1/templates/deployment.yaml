@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "apiv1.fullname" . }}
+  labels:
+    app: {{ include "apiv1.name" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "apiv1.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "apiv1.name" . }}
+    spec:
+      containers:
+        - name: apiv1
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.service.targetPort }}

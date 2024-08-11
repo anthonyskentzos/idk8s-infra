@@ -1,0 +1,4 @@
+apiVersion: v2
+name: apiv1
+description: A Helm chart for apiv1 service
+version: 0.1.0
