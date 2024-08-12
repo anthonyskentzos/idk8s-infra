@@ -1,6 +1,0 @@
-image:
-  repository: ghcr.io/anthonyskentzos/idk8s-web
-  tag: latest
-service:
-  port: 8081
-  targetPort: 3000
