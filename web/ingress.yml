@@ -16,13 +16,10 @@ spec:
             name: web-service
             port:
               number: 80
-  - host: idk8s.example
-      http:
-        paths:
-          - path: /argocd
-            pathType: Prefix
-            backend:
-              service:
-                name: argocd-server
-                port:
-                  number: 80
+       - path: /argocd
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
