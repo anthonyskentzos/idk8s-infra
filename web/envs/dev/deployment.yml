@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+spec:
+  template:
+    spec:
+      containers:
+      - name: idk8s-web
+        # env:
+        # - name: ENV
+        #   value: "prod-us"
+        # - name: GPU_ENABLED
+        #   value: "1"
