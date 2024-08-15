@@ -1,7 +1,8 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-deployment
+  name: idk8s-web-deployment
 spec:
   template:
     spec:

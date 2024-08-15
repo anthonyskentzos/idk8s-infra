@@ -2,10 +2,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-deployment
+  name: idk8s-wev-deployment
 spec:
   template:
     spec:
       containers:
-      - name: web
+      - name: idk8s-web
         image: ghcr.io/anthonyskentzos/idk8s-web:latest

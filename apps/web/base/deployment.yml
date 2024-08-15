@@ -1,21 +1,23 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-deployment
-  labels:
-    app: web
+  # annotations:
+  #   codefresh.io/app: simple-go-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web
+      app: idk8s-web
   template:
     metadata:
       labels:
-        app: web
+        app: idk8s-web
     spec:
       containers:
-      - name: web
+      - name: idk8s-web
+        imagePullPolicy: Always
         image: ghcr.io/anthonyskentzos/idk8s-web:latest
         ports:
         - containerPort: 8081
