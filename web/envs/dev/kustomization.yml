@@ -4,9 +4,9 @@ kind: Kustomization
 resources:
 - ../../base
 
-patchesStrategicMerge:
-- deployment.yml
-- version.yml
-- replicas.yml
-# - settings.yml
+# patchesStrategicMerge:
+  # - deployment.yml
+  # - version.yml
+  # - replicas.yml
+  # # - settings.yml
 
