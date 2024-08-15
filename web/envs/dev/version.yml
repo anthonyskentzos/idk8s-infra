@@ -1,0 +1,11 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-app1-deployment
+spec:
+  template:
+    spec:
+      containers:
+      - name: web
+        image: ghcr.io/anthonyskentzos/idkk8s-web:latest

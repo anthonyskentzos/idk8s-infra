@@ -6,7 +6,7 @@ resources:
 
 patchesStrategicMerge:
 - deployment.yml
-# - version.yml
+- version.yml
 - replicas.yml
 # - settings.yml
 
