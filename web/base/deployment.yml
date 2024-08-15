@@ -18,4 +18,4 @@ spec:
       - name: web
         image: ghcr.io/anthonyskentzos/idk8s-web:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8081
