@@ -20,4 +20,4 @@ spec:
         imagePullPolicy: Always
         image: ghcr.io/anthonyskentzos/idk8s-web:latest
         ports:
-        - containerPort: 8081
+        - containerPort: 80
