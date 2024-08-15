@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: au-stack
+  name: dev
   namespace: argocd
 spec:
   goTemplate: true
@@ -11,7 +11,7 @@ spec:
       repoURL: https://github.com/anthonyskentzos/idk8s-infra.git
       revision: HEAD
       directories:
-      - path: apps/*/envs/prod-au
+      - path: apps/*/envs/dev
   template:
     metadata:
       name: '{{index .path.segments 1}}-{{index .path.segments 3}}'
