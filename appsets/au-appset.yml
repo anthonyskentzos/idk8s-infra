@@ -8,7 +8,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
-      repoURL: https://github.com/anthonyskentzos/k8s-infra.git
+      repoURL: https://github.com/anthonyskentzos/idk8s-infra.git
       revision: HEAD
       directories:
       - path: apps/*/envs/prod-au
@@ -21,7 +21,7 @@ spec:
 
       # Source of the application manifests
       source:
-        repoURL: https://github.com/anthonyskentzos/k8s-infra.git
+        repoURL: https://github.com/anthonyskentzos/idk8s-infra.git
         targetRevision: HEAD
         path: '{{.path.path}}'
 
