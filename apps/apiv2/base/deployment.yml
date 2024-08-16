@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apiv2-deployment
+  # annotations:
+  #   codefresh.io/app: simple-go-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: idk8s-apiv1
+  template:
+    metadata:
+      labels:
+        app: idk8s-apiv1
+    spec:
+      containers:
+      - name: idk8s-apiv2
+        imagePullPolicy: Always
+        image: ghcr.io/anthonyskentzos/idk8s-apiv2:latest
+        ports:
+        - containerPort: 3001
