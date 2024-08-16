@@ -9,11 +9,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: idk8s-apiv1
+      app: idk8s-apiv2
   template:
     metadata:
       labels:
-        app: idk8s-apiv1
+        app: idk8s-apiv2
     spec:
       containers:
       - name: idk8s-apiv2
