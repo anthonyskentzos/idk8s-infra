@@ -18,6 +18,6 @@ spec:
       containers:
       - name: idk8s-apiv2
         imagePullPolicy: Always
-        image: ghcr.io/anthonyskentzos/idk8s-apiv2:da80ba1
+        image: ghcr.io/anthonyskentzos/idk8s-apiv2:742a3b2
         ports:
         - containerPort: 3001
