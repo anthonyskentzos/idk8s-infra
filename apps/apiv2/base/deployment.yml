@@ -1,10 +1,7 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: apiv2-deployment
-  # annotations:
-  #   codefresh.io/app: simple-go-app
 spec:
   replicas: 1
   selector:
