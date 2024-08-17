@@ -21,6 +21,6 @@ resources:
 
 images:
 - name: ghcr.io/anthonyskentzos/idk8s-apiv1
-  newTag: s5fb2b1a
+  newTag: b418ef6
 # patchesStrategicMerge:
 # - set-pod-resources.yaml
