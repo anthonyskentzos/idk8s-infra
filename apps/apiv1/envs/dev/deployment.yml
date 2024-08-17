@@ -7,8 +7,4 @@ spec:
     spec:
       containers:
       - name: idk8s-apiv1
-        # env:
-        # - name: ENV
-        #   value: "prod-us"
-        # - name: GPU_ENABLED
-        #   value: "1"
+
