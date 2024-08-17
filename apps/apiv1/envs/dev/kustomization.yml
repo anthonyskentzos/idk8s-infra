@@ -3,11 +3,5 @@ kind: Kustomization
 
 resources:
 - ../../base
-
-
-# patchesStrategicMerge:
-# - deployment.yml
-# - version.yml
-# - replicas.yml
-# - settings.yml
-
+images:
+- name: ghcr.io/anthonyskentzos/idk8s-apiv1
