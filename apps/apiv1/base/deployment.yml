@@ -18,3 +18,11 @@ spec:
         image: ghcr.io/anthonyskentzos/idk8s-apiv1:5fb2b1a
         ports:
         - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
