@@ -5,7 +5,7 @@ kind: Kustomization
 # - ../../base
 
 resources:
-  - ingress.yaml
+  - ../../base/ingress.yaml
 patches:
   - target:
       kind: Ingress
