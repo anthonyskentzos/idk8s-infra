@@ -1,7 +1,0 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: idk8s-web-ingress
-spec:
-  rules:
-  - host: idk8s.example  # This value will be set based on the environment
