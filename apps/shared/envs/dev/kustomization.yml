@@ -21,4 +21,4 @@ configMapGenerator:
   literals:
   - CONFIGMAP_ENV=dev
 
-namePrefix: "dev-"
+# namePrefix: "dev-"

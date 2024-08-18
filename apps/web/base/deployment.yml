@@ -22,6 +22,6 @@ spec:
         - name: CONFIGMAP_ENV
           valueFrom:
             configMapKeyRef:
-              name: dev-configmap
+              name: configmap
               key: CONFIGMAP_ENV
 
