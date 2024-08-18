@@ -21,3 +21,4 @@ resources:
 
 images:
 - name: ghcr.io/anthonyskentzos/idk8s-apiv1
+  newTag: a26e20f
