@@ -23,8 +23,8 @@ spec:
             name: idk8s-apiv2-service
             port:
               number: 3001
-      - path: /doom/(.*)
-        pathType: ImplementationSpecific
+      - path: /doom
+        pathType: Prefix
         backend:
           service:
             name: doom-service
