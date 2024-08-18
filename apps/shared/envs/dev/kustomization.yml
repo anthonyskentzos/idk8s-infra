@@ -14,6 +14,8 @@ patches:
         value: idk8s.example
 
 configMapGenerator:
-- name: shared-config
+- name: configmap
   literals:
   - CONFIGMAP_ENV=dev
+
+namePrefix: "dev-"

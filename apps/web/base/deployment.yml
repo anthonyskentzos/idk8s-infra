@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-deployment
-  # annotations:
-  #   codefresh.io/app: simple-go-app
 spec:
   replicas: 1
   selector:
@@ -24,6 +22,6 @@ spec:
         - name: CONFIGMAP_ENV
           valueFrom:
             configMapKeyRef:
-              name: shared-config
+              name: dev-configmap
               key: CONFIGMAP_ENV
 
