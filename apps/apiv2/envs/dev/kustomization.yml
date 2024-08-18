@@ -5,4 +5,4 @@ resources:
 - ../../base
 images:
 - name: ghcr.io/anthonyskentzos/idk8s-apiv2
-  newTag: 0e5abaa
+  newTag: ce0884d
