@@ -17,6 +17,8 @@ spec:
       containers:
       - name: doom
         imagePullPolicy: Always
-        image: callumhoughton22/doom-in-docker:0.1
+        # image: callumhoughton22/doom-in-docker:0.1
+        image: elliottking/doom-wasm:0.1.1
         ports:
-        - containerPort: 8080
+        # - containerPort: 8080
+          - containerPort: 8000
