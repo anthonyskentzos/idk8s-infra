@@ -12,3 +12,8 @@ patches:
       - op: replace
         path: /spec/rules/0/host
         value: idk8s.example
+
+configMapGenerator:
+- name: shared-config
+  literals:
+  - CONFIGMAP_ENV=dev
