@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: dev
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: https://github.com/anthonyskentzos/idk8s-infra.git
+      revision: HEAD
+      directories:
+      - path: apps/doom
+  template:
+    metadata:
+      name: 'doom'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/anthonyskentzos/idk8s-infra.git
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: default
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        automated:
+          prune: true
+          selfHeal: true
