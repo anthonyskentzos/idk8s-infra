@@ -5,4 +5,4 @@ resources:
 
 images:
 - name: ghcr.io/anthonyskentzos/idk8s-apiv1
-  newTag: b6456c5
+  newTag: 18bc741
