@@ -6,4 +6,4 @@ resources:
 images:
 - name: ghcr.io/anthonyskentzos/idk8s-apiv2
 - name: ghcr.io/anthonyskentzos/idk8s-web
-  newTag: c7d0122
+  newTag: f71c905
