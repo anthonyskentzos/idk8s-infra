@@ -18,10 +18,3 @@ spec:
         image: ghcr.io/anthonyskentzos/idk8s-web:latest
         ports:
         - containerPort: 80
-        env:
-        - name: CONFIGMAP_ENV
-          valueFrom:
-            configMapKeyRef:
-              name: configmap
-              key: CONFIGMAP_ENV
-

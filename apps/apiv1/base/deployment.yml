@@ -26,3 +26,9 @@ spec:
           httpGet:
             path: /
             port: 3000
+        env:
+        - name: CONFIGMAP_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: configmap
+              key: CONFIGMAP_ENV
