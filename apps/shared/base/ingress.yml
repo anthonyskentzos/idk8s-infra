@@ -30,3 +30,11 @@ spec:
             name: idk8s-web-service
             port:
               number: 80
+      - path: /argocd/(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 8080
+            namespace: argocd
