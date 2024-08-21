@@ -13,7 +13,6 @@ patches:
         path: /spec/rules/0/host
         value: idk8s.example
 
-
 generatorOptions:
   disableNameSuffixHash: true
 
