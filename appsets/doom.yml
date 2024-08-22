@@ -15,7 +15,7 @@ spec:
       - path: apps/doom
   template:
     metadata:
-      name: doom-app
+      name: doom
     spec:
       project: default
       source:
