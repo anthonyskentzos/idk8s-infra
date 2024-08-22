@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - ingress.yml
 - ingress-argo.yml
+- namespace.yml
