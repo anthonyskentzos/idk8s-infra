@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: doom-ingress
-  namespace: default
+  namespace: doom
   annotations:
 spec:
   rules:
