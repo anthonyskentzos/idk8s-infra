@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doom-in-docker-deployment
+  labels:
+    app: doom-in-docker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: doom-in-docker
+  template:
+    metadata:
+      labels:
+        app: doom-in-docker
+    spec:
+      containers:
+      - name: doom-in-docker
+        image: callumhoughton22/doom-in-docker:0.1
+        ports:
+        - containerPort: 8080
