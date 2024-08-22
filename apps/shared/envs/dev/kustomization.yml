@@ -12,7 +12,10 @@ patches:
       - op: replace
         path: /spec/rules/0/host
         value: idk8s.example
-  - path: namespace.yml
+  - target:
+      kind: Namespace
+      name: idk8s-dev
+    path: namespace.yml
 
 generatorOptions:
   disableNameSuffixHash: true
