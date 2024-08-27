@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-deployment
-  namespace: default
+  namespace: default # Will be overwriten by kustomize overlay
 spec:
   replicas: 1
   selector:
