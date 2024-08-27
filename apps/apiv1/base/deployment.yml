@@ -27,6 +27,13 @@ spec:
           httpGet:
             path: /
             port: 3000
+        resources: # TODO: Adjust these with kustomize
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         env:
         - name: CONFIGMAP_ENV
           valueFrom:
