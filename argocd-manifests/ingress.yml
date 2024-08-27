@@ -1,9 +1,11 @@
-# TODO: Installed manually
+# TODO: Installed manually to avoid kustomize overwriting the namespace
+# TODO: Warning: annotation "kubernetes.io/ingress.class" is deprecated, please use 'spec.ingressClassName' instead
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-server-http-ingress
-  namespace: argocd # TODO: Fix this being overwritten by kustomize
+  namespace: argocd
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
