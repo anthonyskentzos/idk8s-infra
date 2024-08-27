@@ -19,3 +19,10 @@ spec:
         image: ghcr.io/anthonyskentzos/idk8s-apiv2:748b532
         ports:
         - containerPort: 3001
+        resources: # TODO: Adjust these with kustomize
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
