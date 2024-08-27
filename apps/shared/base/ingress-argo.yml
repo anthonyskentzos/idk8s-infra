@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-server-http-ingress
-  namespace: argocd
+  namespace: argocd # TODO: Fix this being overwritten by kustomize
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
