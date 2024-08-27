@@ -5,6 +5,8 @@ resources:
 - ../../base
 - namespace.yml
 
+namespace: idk8s-dev
+
 patches:
   - target:
       kind: Ingress

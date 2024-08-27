@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
 - ../../base
 
+namespace: idk8s-dev
+
 images:
 - name: ghcr.io/anthonyskentzos/idk8s-apiv2
 - name: ghcr.io/anthonyskentzos/idk8s-web
