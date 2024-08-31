@@ -42,7 +42,7 @@ crds:
 global:
   # -- Default domain used by all components
   ## Used for ingresses, certificates, SSO, notifications, etc.
-  domain: argocd.example.com
+  domain: argocd.idk8s.example # TODO: Anthony changed
 
   # -- Common labels for the all resources
   additionalLabels: {}
@@ -178,7 +178,7 @@ configs:
 
     # -- Enable exec feature in Argo UI
     ## Ref: https://argo-cd.readthedocs.io/en/latest/operator-manual/rbac/#exec-resource
-    exec.enabled: true
+    exec.enabled: false
 
     # -- Enable local admin user
     ## Ref: https://argo-cd.readthedocs.io/en/latest/faq/#how-to-disable-admin-user
@@ -252,7 +252,7 @@ configs:
     ## Server properties
     # -- Run server without TLS
     ## NOTE: This value should be set when you generate params by other means as it changes ports used by ingress template.
-    server.insecure: false
+    server.insecure: false # TODO: Anthony changed
     # -- Value for base href in index.html. Used if Argo CD is running behind reverse proxy under subpath different from /
     server.basehref: /
     # -- Used if Argo CD is running behind reverse proxy under subpath different from /
@@ -2151,48 +2151,32 @@ server:
     # -- Automount API credentials for the Service Account
     automountServiceAccountToken: true
 
-  # Argo CD server ingress configuration
   ingress:
     # -- Enable an ingress resource for the Argo CD server
-    enabled: false
-    # -- Specific implementation for ingress controller. One of `generic`, `aws` or `gke`
-    ## Additional configuration might be required in related configuration sections
-    controller: generic
+    enabled: true # TODO: Anthony changed
+    # -- Additional ingress annotations
+    annotations: # TODO: Anthony changed
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     # -- Additional ingress labels
     labels: {}
-    # -- Additional ingress annotations
-    ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#option-1-ssl-passthrough
-    annotations: {}
-      # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      # nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-
     # -- Defines which ingress controller will implement the resource
-    ingressClassName: ""
+    ingressClassName: "nginx"
 
-    # -- Argo CD server hostname
-    # @default -- `""` (defaults to global.domain)
-    hostname: ""
+    # -- List of ingress hosts
+    ## Argo Ingress.
+    ## Hostnames must be provided if Ingress is enabled.
+    ## Secrets must be manually created in the namespace
+    hosts:
+       - argocd.idk8s.example
 
-    # -- The path to Argo CD server
-    path: /
-
+    # -- List of ingress paths
+    paths:
+      - /
     # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
     pathType: Prefix
-
-    # -- Enable TLS configuration for the hostname defined at `server.ingress.hostname`
-    ## TLS certificate will be retrieved from a TLS secret `argocd-server-tls`
-    ## You can create this secret via `certificate` or `certificateSecret` option
-    tls: false
-
-    # -- The list of additional hostnames to be covered by ingress record
-    # @default -- `[]` (See [values.yaml])
-    extraHosts: []
-      # - name: argocd.example.com
-      #   path: /
-
     # -- Additional ingress paths
-    # @default -- `[]` (See [values.yaml])
-    ## Note: Supports use of custom Helm templates
     extraPaths: []
       # - path: /*
       #   pathType: Prefix
@@ -2202,26 +2186,14 @@ server:
       #       port:
       #         name: use-annotation
 
-    # -- Additional ingress rules
-    # @default -- `[]` (See [values.yaml])
-    ## Note: Supports use of custom Helm templates
-    extraRules: []
-      # - http:
-      #     paths:
-      #     - path: /
-      #       pathType: Prefix
-      #       backend:
-      #         service:
-      #           name: '{{ include "argo-cd.server.fullname" . }}'
-      #           port:
-      #             name: '{{ .Values.server.service.servicePortHttpsName }}'
+    # -- Ingress TLS configuration
+    tls:
+      - secretName: argocd-secret
+        hosts:
+          - argocd.idk8s.example
 
-    # -- Additional TLS configuration
-    # @default -- `[]` (See [values.yaml])
-    extraTls: []
-      # - hosts:
-      #   - argocd.example.com
-      #   secretName: your-certificate-name
+    # -- Uses 'server.service.servicePortHttps' instead 'server.service.servicePortHttp'
+    https: true
 
     # AWS specific options for Application Load Balancer
     # Applies only when `serv.ingress.controller` is set to `aws`
