@@ -7,4 +7,4 @@ namespace: idk8s-dev
 
 images:
 - name: ghcr.io/anthonyskentzos/idk8s-apiv1
-  newTag: 32687ea
+  newTag: a6b49fe
