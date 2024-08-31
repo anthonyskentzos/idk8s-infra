@@ -19,6 +19,14 @@ spec:
         image: ghcr.io/anthonyskentzos/idk8s-apiv2:748b532
         ports:
         - containerPort: 3001
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3001
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3001
         resources: # TODO: Adjust these with kustomize
           requests:
             memory: "64Mi"
